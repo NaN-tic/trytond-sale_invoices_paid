@@ -9,7 +9,6 @@ __metaclass__ = PoolMeta
 
 
 class Sale:
-    'Sale'
     __name__ = 'sale.sale'
     invoices_paid = fields.Function(fields.Boolean('Paid', select=True),
         'get_invoices_paid')
