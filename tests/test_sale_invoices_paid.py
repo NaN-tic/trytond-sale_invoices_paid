@@ -1,32 +1,18 @@
-#!/usr/bin/env python
-# This file is part sale_invoices_paid module for Tryton.
-# The COPYRIGHT file at the top level of this repository contains
-# the full copyright notices and license terms.
+# This file is part of the sale_invoices_paid module for Tryton.
+# The COPYRIGHT file at the top level of this repository contains the full
+# copyright notices and license terms.
 import unittest
 import trytond.tests.test_tryton
-from trytond.tests.test_tryton import test_view, test_depends
+from trytond.tests.test_tryton import ModuleTestCase
 
 
-class SaleInovoicesPaidTestCase(unittest.TestCase):
-    'Test Sale Inovoices Paid module'
-
-    def setUp(self):
-        trytond.tests.test_tryton.install_module('sale_invoices_paid')
-
-    def test0005views(self):
-        'Test views'
-        test_view('sale_invoices_paid')
-
-    def test0006depends(self):
-        'Test depends'
-        test_depends()
+class SaleInvoicesPaidTestCase(ModuleTestCase):
+    'Test Sale Invoices Paid module'
+    module = 'sale_invoices_paid'
 
 
 def suite():
     suite = trytond.tests.test_tryton.suite()
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(
-        SaleInovoicesPaidTestCase))
+        SaleInvoicesPaidTestCase))
     return suite
-
-if __name__ == '__main__':
-    unittest.TextTestRunner(verbosity=2).run(suite())
