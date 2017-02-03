@@ -17,14 +17,14 @@ class Sale:
     def get_invoices_paid(cls, records, name):
         """Get invoices are paid"""
         result = {}
-        paid = False
-        invoice_paid = []
         for sale in records:
+            paid = False
+            invoices_paid = []
             if sale.invoices:
                 for invoice in sale.invoices:
                     if invoice.state == 'paid':
-                        invoice_paid.append(invoice.id)
-                if len(invoice_paid) == len(sale.invoices):
+                        invoices_paid.append(invoice.id)
+                if len(invoices_paid) == len(sale.invoices):
                     paid = True
             result[sale.id] = paid
         return result
